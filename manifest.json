@@ -4,22 +4,16 @@
   "description": "Auto Tab Manager",
   "version": "1.0.0",
   "icons": {
-    "128": "icons/icon-128.png"
+    "32": "icons/icon-32.png",
+    "64": "icons/icon-64.png"
+  },
+  "action": {
+    "default_popup": "popup.html"
   },
   "background": {
     "service_worker": "service-worker.js",
     "type": "module"
   },
   "minimum_chrome_version": "102",
-  // "omnibox": {
-  //   "keyword": "api"
-  // },
   "permissions": ["tabs", "tabGroups", "storage"]
-  // "host_permissions": ["https://extension-tips.glitch.me/*"],
-  // "content_scripts": [
-  //   {
-  //     "matches": ["https://developer.chrome.com/docs/extensions/reference/*"],
-  //     "js": ["content.js"]
-  //   }
-  // ]
 }
