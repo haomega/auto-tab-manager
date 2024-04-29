@@ -45,7 +45,7 @@ setInterval(() => {
       });
     }
   });
-}, 10000);
+}, 30000);
 
 // 折叠除当前分组外的其他分组
 async function foldOtherGroup(currTab) {

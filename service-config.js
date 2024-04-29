@@ -18,8 +18,8 @@ async function isAutoGroup() {
 }
 
 async function isAutoCLoseInactive() {
-  const entry = await storage.get(["autoCloseTab"]);
-  return entry.autoCloseTab;
+  const entry = await storage.get(["autoCloseInactive"]);
+  return entry.autoCloseInactive;
 }
 
 async function isAutoFoldOtherGroup() {
