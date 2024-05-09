@@ -139,7 +139,11 @@ function getDomain(url) {
   if (domain == undefined) {
     return null;
   }
-  return domain.split(":")[0];
+  domain = domain.split(":")[0];
+  if (domain.startsWith("www.")) {
+    domain = domain.slice(4)
+  }
+  return domain
 }
 
 function isChromeOriginalTab(tab) {
