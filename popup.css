@@ -43,3 +43,36 @@ body {
 .switch input[type="checkbox"]:checked + label {
     background-color: #337ab7; /* blue color */
 }
+
+/* group list */
+
+
+#group-list {
+    display: table;
+    width: 80%;
+    border-collapse: collapse;
+    background-color: #fff;
+    /* border: 1px solid #ccc; */
+}
+
+.table-header, .table-body {
+    display: table-header-group;
+    display: table-row-group;
+}
+
+.table-row {
+    display: table-row;
+}
+
+.table-cell {
+    display: table-cell;
+    /* padding: 15px; */
+    /* border: 1px solid #ccc; */
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+
+.table-header .table-cell {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
