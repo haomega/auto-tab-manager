@@ -1,53 +1,67 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./popup.css" />
-    </head>
-    <body>
-        <div class="control-pane">
-            <div>
-                <div class="switch-desc">
-                    <p>Enable auto group tab</p>
-                </div>
-                <div class="switch">
-                    <input type="checkbox" id="switch-auto-group" />
-                    <label for="switch-auto-group"></label>
-                </div>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./popup.css" />
+</head>
+
+<body>
+    <div class="control-pane">
+        <div>
+            <div class="switch-desc">
+                <p>Enable auto group tab</p>
             </div>
-            <div>
-                <div class="switch-desc">
-                    <p>Enable auto close inactive tab</p>
-                </div>
-                <div class="switch">
-                    <input type="checkbox" id="switch-auto-close-inactive" />
-                    <label for="switch-auto-close-inactive"></label>
-                </div>
-            </div>
-            <div>
-                <div class="switch-desc">
-                    <p>Enable auto fold other group</p>
-                </div>
-                <div class="switch">
-                    <input type="checkbox" id="switch-input-auto-fold-other-group" />
-                    <label for="switch-input-auto-fold-other-group"></label>
-                </div>
+            <div class="switch">
+                <input type="checkbox" id="switch-auto-group" />
+                <label for="switch-auto-group"></label>
             </div>
         </div>
-        <div id="group-list">
-            <div class="table-row">
-                <div class="table-cell">url</div>
-                <div class="table-cell">count</div>
-                <div class="table-cell">btns</div>
+        <div>
+            <div class="switch-desc">
+                <p>Enable auto close inactive tab</p>
             </div>
-            <div class="table-row">
-                <div class="table-cell">url</div>
-                <div class="table-cell">count</div>
-                <div class="table-cell">btns</div>
+            <div class="switch">
+                <input type="checkbox" id="switch-auto-close-inactive" />
+                <label for="switch-auto-close-inactive"></label>
             </div>
         </div>
-        <script type="text/javascript" src="popup.js"></script>
-    </body>
+        <div>
+            <div class="switch-desc">
+                <p>Enable auto fold other group</p>
+            </div>
+            <div class="switch">
+                <input type="checkbox" id="switch-input-auto-fold-other-group" />
+                <label for="switch-input-auto-fold-other-group"></label>
+            </div>
+        </div>
+    </div>
+    <table id="group-list">
+        <thead>
+            <tr>
+                <td>url</td>
+                <td>count</td>
+                <td>options</td>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+
+        </tbody>
+    </table>
+    <!-- Define the template -->
+    <template id="table-row-tpl">
+        <tr>
+            <td class="table-cell url">url</td>
+            <td class="table-cell count">count</td>
+            <td class="table-cell">
+                <button class="btn-focus">focus</button>
+                <button class="btn-del">del</button>
+            </td>
+        </tr>
+    </template>
+    <script type="text/javascript" src="popup.js"></script>
+</body>
+
 </html>

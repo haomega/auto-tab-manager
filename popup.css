@@ -1,5 +1,6 @@
 body {
-    width: 200px;
+    width: 23r0px;
+    font-size: 75%;
 }
 .switch-desc {
     width: 180px;
@@ -44,35 +45,10 @@ body {
     background-color: #337ab7; /* blue color */
 }
 
-/* group list */
-
-
-#group-list {
-    display: table;
-    width: 80%;
-    border-collapse: collapse;
-    background-color: #fff;
-    /* border: 1px solid #ccc; */
+.btn-focus {
+    background-color: aquamarine;
 }
 
-.table-header, .table-body {
-    display: table-header-group;
-    display: table-row-group;
-}
-
-.table-row {
-    display: table-row;
-}
-
-.table-cell {
-    display: table-cell;
-    /* padding: 15px; */
-    /* border: 1px solid #ccc; */
-    border-bottom: 1px solid #ccc;
-    text-align: left;
-}
-
-.table-header .table-cell {
-    background-color: #f4f4f4;
-    font-weight: bold;
+.btn-del {
+    background-color: deeppink;
 }
