@@ -1,7 +1,8 @@
 body {
-    width: 23r0px;
+    width: 300px;
     font-size: 75%;
 }
+
 .switch-desc {
     width: 180px;
 }
@@ -12,11 +13,13 @@ body {
     width: 40px;
     height: 20px;
 }
+
 .switch input[type="checkbox"] {
     opacity: 0;
     width: 0;
     height: 0;
 }
+
 .switch label {
     position: absolute;
     top: 0;
@@ -27,6 +30,7 @@ body {
     border-radius: 20px;
     cursor: pointer;
 }
+
 .switch label:before {
     content: "";
     position: absolute;
@@ -38,17 +42,59 @@ body {
     border-radius: 50%;
     transition: transform 0.3s ease-in-out;
 }
-.switch input[type="checkbox"]:checked + label:before {
+
+.switch input[type="checkbox"]:checked+label:before {
     transform: translateX(20px);
 }
-.switch input[type="checkbox"]:checked + label {
-    background-color: #337ab7; /* blue color */
+
+.switch input[type="checkbox"]:checked+label {
+    background-color: #337ab7;
+    /* blue color */
 }
 
-.btn-focus {
-    background-color: aquamarine;
+
+/* table */
+
+table {
+    width: 290px;
+    margin: 5px 5px;
+    border-collapse: collapse;
+    border: 2px solid rgb(140 140 140);
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
 }
 
-.btn-del {
-    background-color: deeppink;
+caption {
+    padding: 10px;
+    font-weight: bold;
+}
+
+thead {
+    background-color: rgb(228 240 245);
+}
+
+th,
+td {
+    border: 1px solid rgb(160 160 160);
+    padding: 8px 4px;
+}
+
+td:last-of-type {
+    text-align: center;
+}
+
+tbody>tr:nth-of-type(even) {
+    background-color: rgb(237 238 242);
+}
+
+button:hover {
+    background-color: rgb(197, 236, 232); 
+}
+.btn-focus:hover {
+    background-color: rgb(174, 247, 161);
+}
+
+.btn-del:hover {
+    background-color: rgb(245, 142, 133);
 }

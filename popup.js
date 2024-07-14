@@ -37,13 +37,13 @@ async function populateTable() {
   const tableBody = document.getElementById('table-body');
   const template = document.getElementById('table-row-tpl');
 
-  tabGroups.forEach(item => {
-    // Clone the template content
+  tabGroups.forEach(async item => {
     const row = template.content.cloneNode(true);
 
     // Fill in the data
     row.querySelector('.url').textContent = item.title;
-    row.querySelector('.count').textContent = 1;
+    tabs = await chrome.tabs.query({ groupId: item.id });
+    row.querySelector('.count').textContent = tabs.length;
     row.querySelector('.btn-focus').onclick = function () {
       focusTabGroup(item.id);
     }
