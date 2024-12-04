@@ -1,4 +1,4 @@
-import { isAutoGroup, isAutoCLoseInactive, isAutoFoldOtherGroup } from "./service-config.js";
+import { isAutoGroup, isAutoCLoseInactive, isAutoFoldOtherGroup, isAutoUngroup } from "./service-config.js";
 
 console.log("service worker started!");
 
@@ -13,8 +13,8 @@ chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
   if (isEnableAutoGroup) {
     await groupTabs(tab);
     const currTab = await getCurrentTab();
-    console.debug("auto group currTab", currTab.groupId, currTab);
-    if (currTab.groupId > 0) {
+    console.debug("auto group currTab", currTab);
+    if (currTab && currTab.groupId > 0) {
       await chrome.tabGroups.update(currTab.groupId, { collapsed: false });
       foldOtherGroup(currTab);
     }
@@ -34,6 +34,7 @@ chrome.tabs.onHighlighted.addListener(async ({ tabIds, windowId }) => {
     foldOtherGroup(tab);
   }
 });
+
 // 关闭不活跃的tab
 setInterval(() => {
   isAutoCLoseInactive().then((res) => {
@@ -45,7 +46,24 @@ setInterval(() => {
       });
     }
   });
-}, 30000);
+  isAutoUngroup().then((res) => {
+    if (res) {
+      // Ungroup single-tab groups
+      chrome.tabGroups.query({}, tabGroups => {
+        console.debug("isAutoUngroup", tabGroups);
+        for (const group of tabGroups) {
+          chrome.tabs.query({ groupId: group.id }, tabs => {
+            console.debug(group.title, "tabs size", tabs);
+            if (tabs.length < 2) {
+              chrome.tabs.ungroup(tabs[0].id);
+            }
+          });
+        }
+      });
+    }
+
+  });
+}, 5000);
 
 // 折叠除当前分组外的其他分组
 async function foldOtherGroup(currTab) {

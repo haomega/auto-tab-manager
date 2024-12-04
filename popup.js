@@ -3,12 +3,14 @@ const storage = chrome.storage.local;
 const autoGroupEle = document.getElementById("switch-auto-group");
 const autoCloseEle = document.getElementById("switch-auto-close-inactive");
 const autoFoldEle = document.getElementById("switch-input-auto-fold-other-group");
+const autoUngroupEle = document.getElementById("switch-input-auto-ungroup");
 
-storage.get(["autoGroup", "autoCloseInactive", "autoFoldOtherGroup"]).then((res) => {
+storage.get(["autoGroup", "autoCloseInactive", "autoFoldOtherGroup", "autoUngroup"]).then((res) => {
   console.debug("get data", res);
   autoGroupEle.checked = res.autoGroup;
   autoCloseEle.checked = res.autoCloseInactive;
   autoFoldEle.checked = res.autoFoldOtherGroup;
+  autoUngroupEle.checked = res.autoUngroup;
 });
 
 autoGroupEle.addEventListener("change", (event) => {
@@ -22,6 +24,10 @@ autoCloseEle.addEventListener("change", (event) => {
 autoFoldEle.addEventListener("change", (event) => {
   const enabled = event.target.checked;
   storage.set({ autoFoldOtherGroup: enabled });
+});
+autoUngroupEle.addEventListener("change", (event) => {
+  const enabled = event.target.checked;
+  storage.set({ autoUngroup: enabled });
 });
 
 chrome.storage.onChanged.addListener((obj) => {

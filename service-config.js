@@ -27,4 +27,9 @@ async function isAutoFoldOtherGroup() {
   return entry.autoFoldOtherGroup;
 }
 
-export { isAutoGroup, isAutoCLoseInactive, isAutoFoldOtherGroup };
+async function isAutoUngroup() {
+  const entry = await storage.get(["autoUngroup"]);
+  return entry.autoUngroup;
+}
+
+export { isAutoGroup, isAutoCLoseInactive, isAutoFoldOtherGroup, isAutoUngroup };
